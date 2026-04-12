@@ -1,0 +1,33 @@
+{
+  "model_type": "ddpm",
+  "run_name": "main",
+  "base_ch": 48,
+  "ch_mults": [
+    1,
+    2,
+    2,
+    4
+  ],
+  "n_res_blocks": 2,
+  "dropout": 0.1,
+  "t_dim": 256,
+  "T": 1000,
+  "sigma_min": 0.0,
+  "batch_size": 128,
+  "num_workers": 4,
+  "burn_in": 0,
+  "img_size": 160,
+  "lr": 0.0002,
+  "weight_decay": 0.0,
+  "ema_decay": 0.999,
+  "max_steps": 10000,
+  "warmup_steps": 500,
+  "grad_clip": 1.0,
+  "log_every": 100,
+  "sample_every": 5000,
+  "ckpt_every": 1000,
+  "n_samples_preview": 4,
+  "device": "",
+  "amp": true,
+  "seed": 0
+}

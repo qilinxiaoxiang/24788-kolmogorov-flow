@@ -1,0 +1,9 @@
+{
+  "img_size": 64,
+  "steps": 1000,
+  "ddpm_final_loss": 0.0496035448461771,
+  "fm_final_loss": 0.28192825078964234,
+  "ddpm_wall_s": 273.21050214767456,
+  "fm_wall_s": 272.08555006980896,
+  "device": "mps"
+}

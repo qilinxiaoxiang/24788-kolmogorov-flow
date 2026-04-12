@@ -1,0 +1,29 @@
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.DS_Store
+
+# Data and checkpoints (too large for git)
+data/*.h5
+data/*.zip
+checkpoints/*.pt
+checkpoints/*.ckpt
+results/*.png
+results/*.pdf
+
+# Keep the directory structure
+!data/.gitkeep
+!checkpoints/.gitkeep
+!results/.gitkeep
+
+# Local configs
+.env
+*.local.json
+
+# LaTeX intermediates
+report/*.aux
+report/*.log
+report/*.bbl
+report/*.blg
+report/*.out
+report/*.synctex.gz
