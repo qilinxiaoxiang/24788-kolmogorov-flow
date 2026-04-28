@@ -216,9 +216,15 @@ DDPM checkpoint diverged at every sub-$1000$ NFE tested).
 \begin{figure}[ht]
   \centering
   \includegraphics[width=0.95\linewidth]{samples_panel.png}
-  \caption{Qualitative samples at default NFE (DDPM 1000, FM 50).
-  Flow Matching reproduces the paired-vortex dipole structure of the real
-  fields, whereas DDPM produces samples dominated by extreme-value outliers.}
+  \caption{Qualitative samples at default NFE (DDPM 1000, FM 50). Each
+  panel uses its own symmetric colormap; the inset annotation reports the
+  per-image $|\omega|_{\max}$. Flow Matching reproduces the paired-vortex
+  dipole structure of the real fields at the correct magnitude
+  ($|\omega|_{\max}\!\approx\!10$, matching real). DDPM has collapsed to
+  near-zero with sparse extreme-value spikes ($|\omega|_{\max}$ in the
+  $10^6$--$10^7$ range, six orders of magnitude above the physical scale),
+  which is what drives the very large vorticity Wasserstein-1 in
+  Table~\ref{tab:core}.}
   \label{fig:samples}
 \end{figure}
 
