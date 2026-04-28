@@ -90,11 +90,8 @@ step 10000. Place them locally as follows:
 
 | Box file                       | Local path                                     |
 |--------------------------------|------------------------------------------------|
-| `ddmp/ema_step10000.pt`        | `checkpoints/ddpm_main/ema_step10000.pt`       |
+| `ddpm/ema_step10000.pt`        | `checkpoints/ddpm_main/ema_step10000.pt`       |
 | `fm/ema_step10000.pt`          | `checkpoints/fm_main/ema_step10000.pt`         |
-
-(The Box folder is named `ddmp/` rather than `ddpm/`; the *file* inside is
-the correct DDPM checkpoint — just rename the local folder when placing it.)
 
 Then open `notebooks/03_evaluate.ipynb` and run all — it should regenerate
 `results/summary.json` and the four figures matching the report.
