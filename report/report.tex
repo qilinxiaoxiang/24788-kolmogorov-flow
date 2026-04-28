@@ -263,23 +263,20 @@ DDPM checkpoint diverged at every sub-$1000$ NFE tested).
 \begin{figure}[ht]
   \centering
   \includegraphics[width=\linewidth]{nfe_sweep.png}
-  \caption{Sampling efficiency vs.\ NFE. Flow Matching is stable from
-  NFE$=5$ (Wasserstein-1 $=0.77$) and monotonically improves to $0.10$
-  at NFE$=50$. DDIM sampling from the DDPM checkpoint diverged at every
-  sub-1000 NFE we tested, returning Wasserstein-1 $\sim 10^{14}$ (right
-  panel uses a log scale; the apparent flat lines are converged FM
-  values vs.\ saturated DDPM-divergence values, not a numerical
-  artefact). The comparison should therefore be read as ``FM remains
-  usable when DDPM is not'' rather than as a quantitative trade-off
-  curve for DDPM.}
+  \caption{Sampling efficiency vs.\ NFE. Flow Matching (orange) is
+  stable from NFE$=5$ (Wasserstein-1 $=0.77$) and monotonically improves
+  to $0.10$ at NFE$=50$. DDIM sampling from the DDPM checkpoint diverges
+  at every sub-1000 NFE tested (Wasserstein-1 $\sim\!10^{14}$), so the
+  gray dashed line is plotted as a divergence indicator rather than as a
+  performance curve. The contrast should be read as ``FM remains usable
+  where DDPM is not,'' not as a trade-off curve for DDPM.}
   \label{fig:nfe}
 \end{figure}
 
 \begin{table}[ht]
   \centering
   \caption{Distributional match between generated and real held-out samples
-  at full scale (lower is better). \textit{Numbers filled in from
-  \texttt{results/summary.json}.}}
+  at full scale (lower is better).}
   \label{tab:core}
   \begin{tabular}{lccc}
     \toprule
