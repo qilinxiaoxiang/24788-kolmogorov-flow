@@ -232,16 +232,31 @@ DDPM checkpoint diverged at every sub-$1000$ NFE tested).
   \centering
   \includegraphics[width=0.7\linewidth]{energy_spectrum.png}
   \caption{Radial energy spectrum $E(k)$. Flow Matching tracks the real
-  spectrum across wavenumbers; DDPM over-concentrates energy at all scales,
-  consistent with its larger variance in generated fields.}
+  spectrum at low and intermediate wavenumbers but over-estimates energy
+  at the high-$k$ tail (the orange curve flattens above $k\!\approx\!20$
+  while the real spectrum continues to drop steeply)---a residual
+  spectral bias that is a known failure mode of generative models on
+  smooth physical fields. DDPM sits roughly six orders of magnitude
+  above the real spectrum at every $k$, consistent with the magnitude
+  collapse visible in Figure~\ref{fig:samples}.}
   \label{fig:spectrum}
 \end{figure}
 
 \begin{figure}[ht]
   \centering
   \includegraphics[width=0.7\linewidth]{vorticity_pdf.png}
-  \caption{Marginal vorticity PDF. Flow Matching matches the real tails;
-  DDPM has heavy tails driven by the outlier samples.}
+  \caption{Marginal vorticity PDF, plotted on two axis ranges to keep both
+  models legible. \textbf{Left:} the physical range $|\omega|\!\le\!1.5\,
+  |\omega|_{\max}^{\text{real}}$, where Flow Matching's density (orange,
+  dotted) overlays the real density (black) almost exactly across the
+  bulk and the bell-shape tails. DDPM's mass in this range is
+  concentrated in a near-zero spike (its bulk has collapsed). \textbf{Right:}
+  the full DDPM range, $|\omega|$ up to $\sim\!10^{7}$, where DDPM's heavy
+  outlier tails are visible---these are what blow up the vorticity
+  Wasserstein-1 in Table~\ref{tab:core}. A single-axis plot (as in
+  earlier drafts) is dominated by DDPM's outliers and squashes both real
+  and FM curves to a single bin at $\omega\!=\!0$, hiding the quantity
+  the figure is meant to compare.}
   \label{fig:pdf}
 \end{figure}
 
@@ -249,9 +264,14 @@ DDPM checkpoint diverged at every sub-$1000$ NFE tested).
   \centering
   \includegraphics[width=\linewidth]{nfe_sweep.png}
   \caption{Sampling efficiency vs.\ NFE. Flow Matching is stable from
-  NFE$=5$ and monotonically improves; DDIM from the DDPM checkpoint diverges
-  for every NFE $<1000$ tested (Wasserstein-1 $\sim 10^{14}$,
-  plotted on a log scale).}
+  NFE$=5$ (Wasserstein-1 $=0.77$) and monotonically improves to $0.10$
+  at NFE$=50$. DDIM sampling from the DDPM checkpoint diverged at every
+  sub-1000 NFE we tested, returning Wasserstein-1 $\sim 10^{14}$ (right
+  panel uses a log scale; the apparent flat lines are converged FM
+  values vs.\ saturated DDPM-divergence values, not a numerical
+  artefact). The comparison should therefore be read as ``FM remains
+  usable when DDPM is not'' rather than as a quantitative trade-off
+  curve for DDPM.}
   \label{fig:nfe}
 \end{figure}
 
