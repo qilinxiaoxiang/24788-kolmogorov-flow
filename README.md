@@ -77,10 +77,27 @@ workflow. TL;DR:
 
 ## Reproducing results
 
-Trained checkpoints live in `checkpoints/{ddpm,fm}_main/`. `03_evaluate.ipynb`
-is the `reproduce_results` notebook required by the assignment: it loads
-checkpoints, regenerates all figures, and writes scalar metrics to
-`results/summary.json`.
+`notebooks/03_evaluate.ipynb` is the `reproduce_results` notebook required
+by the assignment: it loads the trained EMA checkpoints, regenerates all
+figures, and writes scalar metrics to `results/summary.json`.
+
+**Download the trained checkpoints** (~78 MB total) from CMU Box:
+[https://cmu.box.com/s/yky2gxefd222qsj5wywxu8vhn02g9m1l](https://cmu.box.com/s/yky2gxefd222qsj5wywxu8vhn02g9m1l)
+(access: anyone with a CMU Andrew ID).
+
+The Box folder contains two subfolders, each with the final EMA weights at
+step 10000. Place them locally as follows:
+
+| Box file                       | Local path                                     |
+|--------------------------------|------------------------------------------------|
+| `ddmp/ema_step10000.pt`        | `checkpoints/ddpm_main/ema_step10000.pt`       |
+| `fm/ema_step10000.pt`          | `checkpoints/fm_main/ema_step10000.pt`         |
+
+(The Box folder is named `ddmp/` rather than `ddpm/`; the *file* inside is
+the correct DDPM checkpoint — just rename the local folder when placing it.)
+
+Then open `notebooks/03_evaluate.ipynb` and run all — it should regenerate
+`results/summary.json` and the four figures matching the report.
 
 ## Design notes
 
